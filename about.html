@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - SmartGulak</title>
+  <meta name="description" content="Learn more about SmartGulak, your personal expense tracker and budgeting companion.">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #fffbe7 0%, #f4f6fb 100%);
+      color: #232946;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+     /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 10%;
+      background: #1f1f1f;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #facc15;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #facc15;
+    }
+    .nav-links a.btn {
+      background: #facc15;
+      color: #000;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .nav-links a.btn:hover {
+      background: #ffb703;
+    }
+
+    /* Mobile Navbar */
+    .menu-toggle {
+      display: none;
+      font-size: 1.6em;
+      cursor: pointer;
+    }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #181818;
+        position: absolute;
+        top: 60px;
+        right: 10%;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* About Section */
+    .about-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 4rem 2rem 3rem 2rem;
+      max-width: 1100px;
+      margin: 2rem auto 0 auto;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
+    }
+    .about-section h2 {
+      font-size: 2.2rem;
+      color: #f9f9f9;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .about-section p {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      color: #fcfcfc;
+    }
+    .highlights {
+      margin-top: 1.5rem;
+    }
+    .highlights h3 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+    .highlights ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .highlights li {
+      background: #fff;
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      font-size: 1rem;
+      color: #232946;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+    }
+    .highlights li strong {
+      color: #facc15;
+    }
+    .about-img img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+      border: 4px solid #facc15;
+      background: #fff;
+    }
+    /* Team Section */
+    .team-section {
+      background: linear-gradient(135deg,#f3e8ff,#e0f2fe 80%);
+      padding: 4rem 2rem 3rem 2rem;
+      text-align: center;
+      margin-top: 2.5rem;
+      border-radius: 18px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 24px rgba(44, 62, 80, 0.07);
+    }
+    .team-section h2 {
+      font-size: 2rem;
+      color: #232946;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+    .team-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .team-member {
+      background: #fff;
+      padding: 1.5rem 1rem 1.2rem 1rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #facc15;
+    }
+    .team-member:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+      border-color: #ffe066;
+    }
+    .team-member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 3px solid #232946;
+      object-fit: cover;
+      background: #fffbe7;
+    }
+    .team-member h3 {
+      margin: 0.5rem 0 0.2rem 0;
+      font-size: 1.2rem;
+      color: #232946;
+      font-weight: 600;
+    }
+    .team-member p {
+      font-size: 0.97rem;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+    /* Footer */
+    footer {
+      background: #232946;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+      font-size: 1em;
+      letter-spacing: 0.5px;
+      box-sizing: border-box;
+      white-space: normal;
+      word-break: break-word;
+      border-radius: 18px 18px 0 0;
+    }
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .about-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 2.5rem 1rem;
+      }
+      .about-img {
+        margin-top: 2rem;
+      }
+    }
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        gap: 16px;
+        padding: 18px 10px;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .about-section, .team-section {
+        padding: 1.5rem 0.5rem;
+        border-radius: 10px;
+      }
+      .team-container {
+        gap: 1rem;
+      }
+      .about-img img {
+        max-width: 90vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <h2 class="logo">SmartGulak</h2>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="faq.html">Helpdesk</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="about-text">
+        <h2>About SmartGulak</span></h2>
+        <p><strong>SmartGulak</strong> is not just an expense tracker – it’s your personal financial 
+          companion. Designed especially for students and young professionals, it helps you 
+          <em>track expenses, set budgets, and save smarter</em> with a clean and simple interface.</p>
+        <p>Whether it’s managing your monthly pocket money or keeping an eye on daily spending, 
+          SmartGulak gives you the insights you need to stay in control of your finances.</p>
+
+        <div class="highlights">
+          <h3>Key Highlights</h3>
+          <ul>
+            <li><strong>Expense Tracking</strong> – Record daily expenses in seconds.</li>
+            <li><strong>Smart Budgeting</strong> – Plan monthly budgets and avoid overspending.</li>
+            <li><strong>Insightful Reports</strong> – Visualize where your money goes.</li>
+            <li> <strong>Secure & Private</strong> – Your data stays with you.</li>
+          </ul>
+        </div>
+        <p>This project is built with <strong>HTML, CSS, and JavaScript</strong> as a demo frontend 
+          application, showcasing modern UI design and practical financial tools.</p>
+      </div>
+      <div class="about-img">
+        <img src="Screenshot 2025-08-24 174110.png" alt="Expense Tracking Illustration">
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+      <h2>Meet Our Team</h2>
+      <div class="team-container">
+        <div class="team-member">
+          <img src="images/member1.jpg" alt="Team Member">
+          <h3>Rahul Kumar</h3>
+        </div>
+        <div class="team-member">
+          <img src="Rekha.jpg" alt="Team Member">
+          <h3>Rekha</h3>
+        </div>
+        <div class="team-member">
+          <img src="profile.jpg" alt="Team Member">
+          <h3>Rupali Mangla</h3>
+        </div>
+        <div class="team-member">
+          <img src="images/member4.jpg" alt="Team Member">
+          <h3>Shubham Thakur</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 <strong>SmartGulak</strong> | Designed by Team SmartGulak</p>
+    </footer>
+  </div>
+</body>
+</html>
