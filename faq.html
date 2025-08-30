@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartGulak - Testimonials & FAQs</title>
+  <meta name="description" content="See what users say about SmartGulak and find answers to frequently asked questions.">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #f4f6fb;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 10%;
+      background: #1f1f1f;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #facc15;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #facc15;
+    }
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px 20px;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: #fff;
+    }
+    .hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      margin-bottom: 0;
+    }
+    /* Testimonials */
+    .testimonials {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .testimonials h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #2d3e50;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: #fff;
+      padding: 26px;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(44,62,80,0.09);
+      transition: transform 0.2s;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      background: #fffbe7;
+    }
+    .testimonial-card p {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 16px;
+    }
+    .testimonial-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-user img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .testimonial-user h4 {
+      margin: 0;
+      font-size: 1.05rem;
+      color: #2d3e50;
+    }
+    .testimonial-user span {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    /* FAQs */
+    .faqs {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    .faqs h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #2d3e50;
+    }
+    .faq-item {
+      background: #fff;
+      margin-bottom: 14px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 16px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #2d3e50;
+    }
+    .faq-answer {
+      padding: 0 20px 16px 20px;
+      display: none;
+      color: #444;
+      font-size: 1rem;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    /* Footer */
+    .footer-bottom {
+      text-align: center;
+      padding: 14px 5vw;
+      background: #181818;
+      color: #fff;
+      font-size: 1em;
+      margin-top: auto;
+    }
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 700px) {
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <h2 class="logo">SmartGulak</h2>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="faq.html" class="active">Helpdesk</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1>What Our Users Say & FAQs</h1>
+      <p>Real feedback from SmartGulak users and answers to your common questions.</p>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <h2>User Testimonials</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p>“SmartGulak helped me track my expenses effortlessly. Now I save 20% more every month!”</p>
+          <div class="testimonial-user">
+            <img src="https://i.pravatar.cc/48?img=5" alt="User">
+            <div>
+              <h4>Riya Sharma</h4>
+              <span>Student</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p>“I love the reminders feature—no more late bill payments. Super easy to use!”</p>
+          <div class="testimonial-user">
+            <img src="https://i.pravatar.cc/48?img=12" alt="User">
+            <div>
+              <h4>Arjun Mehta</h4>
+              <span>Working Professional</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p>“The budgeting tool keeps me on track every month. Highly recommended for families.”</p>
+          <div class="testimonial-user">
+            <img src="https://i.pravatar.cc/48?img=20" alt="User">
+            <div>
+              <h4>Neha Verma</h4>
+              <span>Homemaker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="faqs">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Is SmartGulak free to use?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Yes, SmartGulak is free to use with all core features. Premium plans may be added in the future.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I access SmartGulak on my phone?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Absolutely! SmartGulak works seamlessly on both desktop and mobile browsers.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How secure is my financial data?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Your data is encrypted and only accessible to you. We follow industry-best security practices.</div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-bottom">
+        <p>© 2025 <strong>SmartGulak</strong> | Made with <span style="color:#e25555;">&#10084;</span> by Team</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- FAQ Toggle Script -->
+  <script>
+    const faqItems = document.querySelectorAll(".faq-item");
+    faqItems.forEach(item => {
+      item.querySelector(".faq-question").addEventListener("click", () => {
+        item.classList.toggle("active");
+      });
+    });
+  </script>
+</body>
+</html>
