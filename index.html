@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartGulak - Home</title>
+  <meta name="description" content="SmartGulak - Manage your expenses, set budgets, and grow your savings with confidence.">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background: #f8fafc;
+      color: #1f2937;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 10%;
+      background: #1f1f1f;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #facc15;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #facc15;
+    }
+    .nav-links a.btn {
+      background: #facc15;
+      color: #000;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .nav-links a.btn:hover {
+      background: #ffb703;
+    }
+
+    /* Mobile Navbar */
+    .menu-toggle {
+      display: none;
+      font-size: 1.6em;
+      cursor: pointer;
+    }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #181818;
+        position: absolute;
+        top: 60px;
+        right: 10%;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
+    }
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      animation: fadeInUp 1s forwards;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      animation: fadeInUp 1.2s forwards;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #facc15;
+      color: #000;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.3s;
+      animation: fadeInUp 1.4s forwards;
+    }
+    .cta-btn:hover {
+      transform: scale(1.05);
+      background: #ffb703;
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      padding: 60px 10%;
+    }
+    .feature-box {
+      background: #fff;
+      padding: 24px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .feature-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    .feature-box h3 {
+      margin-bottom: 8px;
+      color: #1f2937;
+      text-decoration: none;  /* underline removed */
+    }
+    .feature-box p {
+      color: #4b5563;
+    }
+    .feature-box a {
+      text-decoration: none;  /* remove underline from link */
+      color: inherit;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1f1f1f;
+      color: #fff;
+      padding: 40px 5%;
+      width: 100%;
+    }
+    .footer-columns {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-col {
+      flex: 1 1 220px;
+      min-width: 200px;
+    }
+    .footer-col h3 {
+      color: #facc15;
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-col ul li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-col a {
+      color: #fff;
+      text-decoration: none;  /* remove underline */
+      transition: color 0.2s;
+    }
+    .footer-col a:hover {
+      color: #facc15;
+      text-decoration: none;
+    }
+
+    .socials p {
+      margin: 6px 0;
+    }
+    .socials a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .socials a:hover {
+      color: #facc15;
+    }
+
+    .footer-bottom {
+  text-align: center;
+  padding: 14px 5vw;      /* Responsive left-right padding */
+  background: #181818;
+  color: #fff;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  white-space: normal;     /* Allow wrapping */
+  word-break: break-word;  /* Break long words if needed */
+}
+
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+      .footer-columns {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar" aria-label="Main Navigation">
+        <h2 class="logo">SmartGulak</h2>
+        <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="faq.html">Helpdesk</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html" class="btn">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <p id="welcome-msg"></p>
+      <h1>Master Your Finances with Ease</h1>
+      <p>Track every expense, plan smarter budgets, and watch your savings grow.</p>
+      <a href="features.html" class="cta-btn">Get Started</a>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="feature-box">
+        <a href="expense.html">
+          <h3>Track Expenses</h3>
+          <p>Quickly note and categorize your daily spends.</p>
+        </a>
+      </div>
+      <div class="feature-box">
+        <a href="report.html">
+          <h3>Monthly Snapshots</h3>
+          <p>See where your money goes each month.</p>
+        </a>
+      </div>
+      <div class="feature-box">
+        <a href="budget.html">
+          <h3>Budgets & Goals</h3>
+          <p>Set limits and save towards your goals.</p>
+        </a>
+      </div>
+      <div class="feature-box">
+        <a href="history.html">
+          <h3>Simple Insights</h3>
+          <p>See your spending habits in easy charts.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h3>SmartGulak</h3>
+          <p>Manage your expenses, set budgets, and grow your savings with confidence.<br>Your trusted money partner since 2025.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li>Expense Tracking</li>
+            <li>Budget Planning</li>
+            <li>Reports & Insights</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="faq.html">Helpdesk</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+            <li><a href="mailto:support@smartgulak.com">Email Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Team</h3>
+          <div class="socials">
+            <p><a href="https://github.com/yourprofile1" target="_blank"><i class="fab fa-github"></i> Rekha</a></p>
+            <p><a href="https://github.com/yourprofile2" target="_blank"><i class="fab fa-github"></i> Rahul Kumar</a></p>
+            <p><a href="https://github.com/yourprofile3" target="_blank"><i class="fab fa-github"></i> Rupali Mangla</a></p>
+            <p><a href="https://github.com/yourprofile4" target="_blank"><i class="fab fa-github"></i> Shubham Thakur</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 <strong>SmartGulak</strong> | Made with <span style="color:#e25555;">&#10084;</span> by Team</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Welcome message if logged in
+    const regEmail = localStorage.getItem('registeredEmail');
+    if (regEmail) {
+      document.getElementById('welcome-msg').textContent = `Welcome back, ${regEmail.split('@')[0]}!`;
+    }
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
