@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartGulak - Features</title>
+  <meta name="description" content="Explore all the powerful features of SmartGulak for smarter money management.">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #f4f6fb;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 10%;
+      background: #1f1f1f;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #facc15;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #facc15;
+    }
+    .nav-links a.btn {
+      background: #facc15;
+      color: #000;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .nav-links a.btn:hover {
+      background: #ffb703;
+    }
+ /* Mobile Navbar */
+    .menu-toggle {
+      display: none;
+      font-size: 1.6em;
+      cursor: pointer;
+    }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #181818;
+        position: absolute;
+        top: 60px;
+        right: 10%;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+
+    /* Features Hero */
+    .features-hero {
+      text-align: center;
+      padding: 60px 20px 30px 20px;
+      /* background: #fff; */
+       background: linear-gradient(135deg, #2563eb, #1e40af);
+       text-decoration-color: #f4f6fb;
+      box-shadow: 0 2px 16px rgba(44, 62, 80, 0.06);
+      margin-bottom: 30px;
+      animation: fadeInDown 1s;
+    }
+    .features-hero h1 {
+      font-size: 2.3rem;
+      color: #2d3e50;
+      margin-bottom: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .features-hero p {
+      color: #444;
+      font-size: 1.15rem;
+      margin-bottom: 0;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto 40px auto;
+      padding: 0 20px;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(44, 62, 80, 0.09);
+      padding: 36px 22px 28px 22px;
+      text-align: center;
+      transition: transform 0.22s, box-shadow 0.22s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      animation: fadeInUp 1s;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px) scale(1.04);
+      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.16);
+      background: #fffbe7;
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      color: #facc15;
+      margin-bottom: 18px;
+      transition: color 0.2s;
+    }
+
+    .feature-card:hover .feature-icon {
+      color: #e6b800;
+    }
+    .feature-title {
+      font-size: 1.25rem;
+      color: #444;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .feature-desc {
+      color: #444;
+      font-size: 1.05rem;
+      margin-bottom: 0;
+    }
+    /* Footer */
+    .footer-bottom {
+      text-align: center;
+      padding: 14px 5vw;
+      background: #181818;
+      color: #fff;
+      font-size: 1em;
+      letter-spacing: 0.5px;
+      margin-top: 10px;
+      box-sizing: border-box;
+      white-space: normal;
+      word-break: break-word;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 1100px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 700px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 16px;
+        padding: 18px 10px;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <nav class="navbar" aria-label="Main Navigation">
+        <h2 class="logo">SmartGulak</h2>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html" class="active">Features</a></li>
+          <li><a href="faq.html">Helpdesk</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="features-hero">
+      <h1 style="color: #f4f6fb;">Explore SmartGulak Features</h1>
+      <p style="color: #f4f6fb;">Everything you need to master your money, all in one place.</p>
+    </section>
+    <section class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-wallet"></i></div>
+        <div class="feature-title">Expense Tracking</div>
+        <div class="feature-desc">Easily log and categorize your daily expenses for a clear view of your spending habits.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+        <div class="feature-title">Budget Planning</div>
+        <div class="feature-desc">Set monthly budgets and get alerts when you’re close to your limits.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="feature-title">Reports & Insights</div>
+        <div class="feature-desc">Visualize your spending with charts and get actionable insights to save more.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-piggy-bank"></i></div>
+        <div class="feature-title">Savings Goals</div>
+        <div class="feature-desc">Create and track savings goals to stay motivated and reach your dreams faster.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-bell"></i></div>
+        <div class="feature-title">Smart Reminders</div>
+        <div class="feature-desc">Never miss a bill or payment with customizable reminders and notifications.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-lock"></i></div>
+        <div class="feature-title">Secure & Private</div>
+        <div class="feature-desc">Your data is encrypted and protected—only you have access to your financial info.</div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer-bottom">
+        <p>© 2025 <strong>SmartGulak</strong> | Made with <span style="color:#e25555;">&#10084;</span> by Team</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
